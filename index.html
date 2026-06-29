@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- ===== SEO & META TAGS ===== -->
+    <title>Tani Hub · Platform Agritech Indonesia | Petani ke Pembeli</title>
+    <meta name="description" content="Tani Hub menghubungkan petani langsung dengan pembeli tanpa perantara. Dapatkan hasil panen segar dengan harga terbaik. Bergabung gratis!" />
+    <meta name="keywords" content="agritech, petani, pembeli, hasil panen, pertanian, Indonesia, Tani Hub" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://tani-hub-5otv.vercel.app/" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tani-hub-5otv.vercel.app/" />
+    <meta property="og:title" content="Tani Hub · Platform Agritech Indonesia" />
+    <meta property="og:description" content="Hubungkan petani ke pembeli tanpa perantara. Hasil panen segar, harga adil, transaksi aman." />
+    <meta property="og:image" content="https://tani-hub-5otv.vercel.app/og-image.jpg" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tani Hub · Platform Agritech Indonesia" />
+    <meta name="twitter:description" content="Hubungkan petani ke pembeli tanpa perantara. Hasil panen segar, harga adil, transaksi aman." />
+    
+    <!-- ===== STYLES ===== -->
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    
+    <style>
+        /* ===== PRELOADER ===== */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f7f3eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+        #preloader.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loader-leaf {
+            width: 60px;
+            height: 60px;
+            background: #2b5e3b;
+            border-radius: 50% 50% 50% 0;
+            animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+            transform: rotate(45deg);
+            box-shadow: 0 8px 30px rgba(43, 94, 59, 0.3);
+        }
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ===== DARK MODE ===== */
+        body.dark-mode {
+            background: #1a1a1a;
+        }
+        body.dark-mode .bg-krem {
+            background: #1a1a1a;
+        }
+        body.dark-mode .bg-white {
+            background: #2d2d2d;
+        }
+        body.dark-mode .text-hijau-tua {
+            color: #e8f3e6;
+        }
+        body.dark-mode .text-gray-700,
+        body.dark-mode .text-gray-600,
+        body.dark-mode .text-gray-500,
+        body.dark-mode .text-gray-400 {
+            color: #b0b0b0;
+        }
+        body.dark-mode .border-krem,
+        body.dark-mode .border-[#e8dfd2],
+        body.dark-mode .border-[#f0ebe2] {
+            border-color: #444;
+        }
+        body.dark-mode .bg-hijau-muda {
+            background: #1e3d2a;
+        }
+        body.dark-mode .testimoni-card,
+        body.dark-mode .produk-card,
+        body.dark-mode .card-tani {
+            background: #2d2d2d;
+            border-color: #444;
+        }
+        body.dark-mode .bg-krem\/90 {
+            background: rgba(26, 26, 26, 0.9);
+        }
+        body.dark-mode .shadow-hijau {
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.5);
+        }
+        body.dark-mode .btn-outline-hijau {
+            border-color: #4a8a5a;
+            color: #4a8a5a;
+        }
+        body.dark-mode .btn-outline-hijau:hover {
+            background: #4a8a5a;
+            color: white;
+        }
+        body.dark-mode .badge-hijau {
+            background: #1e3d2a;
+            color: #8bc9a0;
+        }
+        body.dark-mode footer .border-t {
+            border-color: #444;
+        }
+        body.dark-mode .step-number {
+            background: #4a8a5a;
+        }
+        body.dark-mode .icon-box {
+            background: #1e3d2a;
+            color: #8bc9a0;
+        }
+        body.dark-mode #mobile-menu {
+            background: #2d2d2d;
+            border-color: #444;
+        }
+        body.dark-mode #mobile-menu a {
+            color: #e8f3e6;
+        }
+        body.dark-mode #mobile-menu a:hover {
+            color: #4a8a5a;
+        }
+        body.dark-mode .bg-hijau-tani {
+            background: #1e5a2e;
+        }
+        body.dark-mode .bg-hijau-muda {
+            background: #1e3d2a;
+        }
+        body.dark-mode .bg-hijau-muda.border {
+            border-color: #2a5a3a;
+        }
+
+        /* ===== FLOATING CTA BUTTON ===== */
+        .floating-cta {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 999;
+            background: #2b5e3b;
+            color: white;
+            padding: 14px 22px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 12px 35px rgba(43, 94, 59, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            animation: pulse-cta 2s infinite;
+        }
+        .floating-cta:hover {
+            transform: scale(1.06);
+            background: #1f4a2d;
+            box-shadow: 0 16px 45px rgba(43, 94, 59, 0.5);
+        }
+        @keyframes pulse-cta {
+            0%,
+            100% {
+                box-shadow: 0 12px 35px rgba(43, 94, 59, 0.4);
+            }
+            50% {
+                box-shadow: 0 12px 50px rgba(43, 94, 59, 0.6);
+            }
+        }
+        .floating-cta .badge-notif {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: #ff6b6b;
+            color: white;
+            font-size: 0.6rem;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 999px;
+            animation: blink 1.5s infinite;
+        }
+        @keyframes blink {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+        /* ===== DARK MODE TOGGLE ===== */
+        .dark-toggle {
+            width: 50px;
+            height: 26px;
+            background: #d4c9b8;
+            border-radius: 999px;
+            position: relative;
+            cursor: pointer;
+            transition: 0.3s;
+            border: none;
+            outline: none;
+            flex-shrink: 0;
+        }
+        .dark-toggle.active {
+            background: #2b5e3b;
+        }
+        .dark-toggle .toggle-ball {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            transition: 0.3s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+        .dark-toggle.active .toggle-ball {
+            left: 27px;
+            background: #e8f3e6;
+        }
+
+        /* ===== UMUM ===== */
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        .bg-hijau-tani {
+            background-color: #2b5e3b;
+        }
+        .bg-hijau-muda {
+            background-color: #e8f3e6;
+        }
+        .text-hijau-tua {
+            color: #1e3d2a;
+        }
+        .text-hijau-tani {
+            color: #2b5e3b;
+        }
+        .btn-hijau {
+            background-color: #2b5e3b;
+            color: white;
+            transition: all 0.25s ease;
+        }
+        .btn-hijau:hover {
+            background-color: #1f4a2d;
+            transform: translateY(-3px);
+            box-shadow: 0 20px 30px -10px rgba(43, 94, 59, 0.3);
+        }
+        .btn-outline-hijau {
+            border: 2px solid #2b5e3b;
+            color: #2b5e3b;
+            transition: all 0.25s ease;
+        }
+        .btn-outline-hijau:hover {
+            background-color: #2b5e3b;
+            color: white;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -12px rgba(43, 94, 59, 0.2);
+        }
+        .shadow-hijau {
+            box-shadow: 0 20px 40px -12px rgba(43, 94, 59, 0.15);
+        }
+        .bg-krem {
+            background-color: #f7f3eb;
+        }
+        .border-krem {
+            border-color: #e8dfd2;
+        }
+        .hero-pattern {
+            background-image: radial-gradient(circle at 80% 20%, rgba(43, 94, 59, 0.03) 0%, transparent 50%);
+        }
+        .testimoni-card {
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem;
+            border: 1px solid #e8dfd2;
+            transition: all 0.3s ease;
+        }
+        .testimoni-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px -12px rgba(43, 94, 59, 0.15);
+        }
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: #2b5e3b;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            margin: 0 auto;
+        }
+        .produk-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            border: 1px solid #e8dfd2;
+            transition: all 0.3s ease;
+        }
+        .produk-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px -8px rgba(43, 94, 59, 0.15);
+        }
+        .badge-hijau {
+            background: #e8f3e6;
+            color: #2b5e3b;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: #e8f3e6;
+            border-radius: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            color: #2b5e3b;
+        }
+        .footer-link:hover {
+            color: #2b5e3b;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .discount-badge {
+            background: #ff6b6b;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            animation: pulse-badge 1.5s infinite;
+        }
+        @keyframes pulse-badge {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        .today-badge {
+            background: #ffa94d;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            font-size: 0.6rem;
+            font-weight: 700;
+        }
+
+        /* Hero animation */
+        .hero-illustration {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        /* Counter number */
+        .counter-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2b5e3b;
+        }
+        body.dark-mode .counter-number {
+            color: #8bc9a0;
+        }
+
+        /* responsive */
+        @media (max-width: 640px) {
+            .hero-text {
+                font-size: 2rem;
+            }
+            .floating-cta {
+                padding: 10px 16px;
+                font-size: 0.8rem;
+                bottom: 16px;
+                right: 16px;
+            }
+            .floating-cta span {
+                display: none;
+            }
+            .counter-number {
+                font-size: 1.8rem;
+            }
+        }
+        @media (min-width: 641px) {
+            .floating-cta .icon-only {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== PRELOADER ===== -->
+    <div id="preloader">
+        <div class="loader-leaf"></div>
+    </div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 pb-3 flex items-center justify-between sticky top-0 bg-krem/90 backdrop-blur-sm z-50 transition-colors duration-300" id="navbar">
+        <div class="flex items-center gap-3">
+            <div class="bg-hijau-tani w-11 h-11 rounded-2xl flex items-center justify-center text-white text-xl shadow-sm">
+                <i class="fas fa-leaf"></i>
+            </div>
+            <span class="text-2xl font-bold text-hijau-tua tracking-tight">Tani<span class="text-hijau-tani">Hub</span></span>
+        </div>
+        <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-700">
+            <a href="#fitur" class="hover:text-hijau-tani transition">Fitur</a>
+            <a href="#produk" class="hover:text-hijau-tani transition">Produk</a>
+            <a href="#cara-kerja" class="hover:text-hijau-tani transition">Cara Kerja</a>
+            <a href="#testimoni" class="hover:text-hijau-tani transition">Testimoni</a>
+            <a href="#kontak" class="hover:text-hijau-tani transition">Kontak</a>
+        </div>
+        <div class="flex items-center gap-3">
+            <!-- Dark Mode Toggle -->
+            <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">
+                <div class="toggle-ball"></div>
+            </button>
+            <a href="https://tani-hub-5otv.vercel.app/login" target="_blank" class="btn-outline-hijau px-5 py-2 rounded-full text-sm font-semibold transition hidden sm:inline-block">
+                <i class="fas fa-sign-in-alt mr-1.5"></i> Masuk
+            </a>
+            <a href="https://tani-hub-5otv.vercel.app/login" target="_blank" class="btn-hijau px-6 py-2.5 rounded-full text-sm font-semibold shadow-md transition flex items-center gap-2">
+                <i class="fas fa-user-plus"></i> Daftar
+            </a>
+            <button class="md:hidden text-gray-600 text-xl" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white mx-4 rounded-2xl shadow-lg p-4 space-y-3 mb-2 border border-krem">
+        <a href="#fitur" class="block hover:text-hijau-tani font-medium">Fitur</a>
+        <a href="#produk" class="block hover:text-hijau-tani font-medium">Produk</a>
+        <a href="#cara-kerja" class="block hover:text-hijau-tani font-medium">Cara Kerja</a>
+        <a href="#testimoni" class="block hover:text-hijau-tani font-medium">Testimoni</a>
+        <a href="#kontak" class="block hover:text-hijau-tani font-medium">Kontak</a>
+        <hr class="border-krem" />
+        <a href="https://tani-hub-5otv.vercel.app/login" target="_blank" class="btn-hijau block text-center py-2 rounded-full font-semibold">Daftar</a>
+    </div>
+
+    <!-- ===== FLOATING CTA BUTTON ===== -->
+    <a href="https://tani-hub-5otv.vercel.app/login" target="_blank" class="floating-cta" id="floatingCta">
+        <i class="fas fa-user-plus"></i>
+        <span>Daftar Gratis</span>
+        <span class="icon-only"><i class="fas fa-arrow-right"></i></span>
+        <span class="badge-notif">+1.2K</span>
+    </a>
+
+    <!-- ===== HERO ===== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-16 md:pt-14 hero-pattern" id="hero">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+            <!-- Kiri -->
+            <div class="space-y-7 order-2 lg:order-1" data-aos="fade-right" data-aos-duration="800">
+                <div class="inline-flex items-center gap-2 bg-hijau-muda text-hijau-tua px-4 py-2 rounded-full text-sm font-medium border border-[#c5d9b5]">
+                    <i class="fas fa-seedling text-hijau-tani"></i>
+                    <span>Platform Agritech #1 di Indonesia</span>
+                </div>
+
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-hijau-tua leading-tight hero-text">
+                    Petani ke Pembeli <br />
+                    <span class="text-hijau-tani">Tanpa Perantara</span>
+                </h1>
+
+                <p class="text-gray-700 text-lg max-w-lg leading-relaxed">
+                    Tani Hub menghubungkan petani langsung dengan pembeli. Hasil panen lebih cepat laku, harga lebih adil, dan transaksi aman. Bergabunglah dengan ribuan petani dan pembeli yang sudah merasakan manfaatnya.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-4 pt-2">
+                    <a href="https://tani-hub-5otv.vercel.app/login" target="_blank" class="btn-hijau px-8 py-4 rounded-full text-lg font-semibold shadow-lg shadow-green-900/20 transition flex items-center gap-3">
+                        <i class="fas fa-user-plus"></i> Daftar Gratis
+                        <i class="fas fa-arrow-right text-sm"></i>
+                    </a>
+                    <a href="#produk" class="text-hijau-tani font-medium flex items-center gap-2 hover:underline">
+                        <i class="fas fa-chevron-circle-down text-xl"></i> Lihat Produk
+                    </a>
+                </div>
+
+                <!-- Counter Statistik -->
+                <div class="flex flex-wrap gap-8 pt-4 border-t border-[#e8dfd2]">
+                    <div>
+                        <span class="block counter-number" data-count="12500">0</span>
+                        <span class="text-sm text-gray-600">Petani bergabung</span>
+                    </div>
+                    <div>
+                        <span class="block counter-number" data-count="8400">0</span>
+                        <span class="text-sm text-gray-600">Transaksi harian</span>
+                    </div>
+                    <div>
+                        <span class="block counter-number" data-count="98">0</span>
+                        <span class="text-sm text-gray-600">% Kepuasan pembeli</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kanan: Animasi / Ilustrasi -->
+            <div class="order-1 lg:order-2 flex justify-center hero-illustration" data-aos="fade-left" data-aos-duration="800">
+                <div class="relative w-full max-w-md">
+                    <div class="bg-white rounded-3xl p-8 shadow-hijau border border-krem relative">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="bg-hijau-muda text-hijau-tua text-xs font-semibold px-3 py-1 rounded-full border border-[#c5d9b5]">
+                                <i class="fas fa-check-circle mr-1"></i> Aktif
+                            </span>
+                            <div class="flex gap-1 text-hijau-tani">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 bg-hijau-muda rounded-2xl p-4 mb-5 border border-[#d4e8cf]">
+                            <div class="bg-hijau-tani w-14 h-14 rounded-xl flex items-center justify-center text-white text-2xl">
+                                <i class="fas fa-tractor"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-hijau-tua">Panen Segar</p>
+                                <p class="text-xs text-gray-600">Langganan dari 20+ petani</p>
+                            </div>
+                            <span class="ml-auto text-hijau-tani font-bold text-sm">Rp 45K</span>
+                        </div>
+
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3 border-b border-[#f0ebe2] pb-2">
+                                <span class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-700">🌶️</span>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-hijau-tua">Cabai Merah</p>
+                                    <p class="text-xs text-gray-400">Bekasi · 2 jam lalu</p>
+                                </div>
+                                <span class="text-sm font-semibold text-hijau-tani">Rp 28K</span>
+                            </div>
+                            <div class="flex items-center gap-3 border-b border-[#f0ebe2] pb-2">
+                                <span class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-700">🍚</span>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-hijau-tua">Beras Organik</p>
+                                    <p class="text-xs text-gray-400">Cianjur · 4 jam lalu</p>
+                                </div>
+                                <span class="text-sm font-semibold text-hijau-tani">Rp 85K</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-700">🥬</span>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-hijau-tua">Sawi Hijau</p>
+                                    <p class="text-xs text-gray-400">Lembang · 6 jam lalu</p>
+                                </div>
+                                <span class="text-sm font-semibold text-hijau-tani">Rp 12K</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-5 pt-3 border-t border-[#f0ebe2] flex items-center justify-between text-xs text-gray-400">
+                            <span><i class="fas fa-users mr-1 text-hijau-tani"></i> 342 pembeli</span>
+                            <span><i class="fas fa-clock mr-1 text-hijau-tani"></i> Update 5 menit</span>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 bg-hijau-muda w-24 h-24 rounded-3xl -z-10 border border-[#d4e8cf]"></div>
+                    <div class="absolute -top-4 -left-4 bg-hijau-muda w-16 h-16 rounded-2xl -z-10 border border-[#d4e8cf]"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FITUR ===== -->
+    <section id="fitur" class="max-w-7xl mx-auto px-4 sm:px-6 pb-20">
+        <div class="text-center mb-12" data-aos="fade-up" data-aos-duration="600">
+            <span class="text-hijau-tani font-semibold text-sm tracking-widest uppercase">Keunggulan</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-hijau-tua mt-2">Mengapa Tani Hub?</h2>
+            <p class="text-gray-600 max-w-xl mx-auto mt-3">Solusi lengkap untuk petani dan pembeli, dari panen sampai ke meja makan.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-3xl shadow-hijau border border-krem card-hover" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon-box mb-5">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3 class="text-xl font-bold text-hijau-tua">Tanpa Perantara</h3>
+                <p class="text-gray-600 text-sm mt-2 leading-relaxed">Petani menjual langsung ke pembeli. Harga lebih adil dan transparan. Tidak ada biaya tambahan yang membebani.</p>
+            </div>
+            <div class="bg-white p-8 rounded-3xl shadow-hijau border border-krem card-hover" data-aos="fade-up" data-aos-delay="200">
+                <div class="icon-box mb-5">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <h3 class="text-xl font-bold text-hijau-tua">Logistik Terintegrasi</h3>
+                <p class="text-gray-600 text-sm mt-2 leading-relaxed">Pengiriman cepat dan terjangkau, didukung mitra logistik terpercaya. Pantau status pengiriman secara real-time.</p>
+            </div>
+            <div class="bg-white p-8 rounded-3xl shadow-hijau border border-krem card-hover" data-aos="fade-up" data-aos-delay="300">
+                <div class="icon-box mb-5">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="text-xl font-bold text-hijau-tua">Aman & Terpercaya</h3>
+                <p class="text-gray-600 text-sm mt-2 leading-relaxed">Sistem pembayaran aman, verifikasi petani, garansi kualitas, dan perlindungan transaksi untuk kedua belah pihak.</p>
+            </div>
+            <div class="bg-white p-8 rounded-3xl shadow-hijau border border-krem card-hover" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon-box mb-5">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="text-xl font-bold text-hijau-tua">Analitik & Insight</h3>
+                <p class="text-gray-600 text-sm mt-2 leading-relaxed">Petani dapat melihat tren harga, permintaan pasar, dan rekomendasi panen untuk meningkatkan keuntungan.</p>
+            </div>
+            <div class="bg-white p-8 rounded-3xl shadow-hijau border border-krem card-hover" data-aos="fade-up" data-aos-delay="200">
+                <div class="icon-box mb-5">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <h3 class="text-xl font-bold text-hijau-tua">Dukungan 24/7</h3>
+                <p class="text-gray-600 text-sm mt-2 leading-relaxed">Tim support siap membantu kapan saja melalui chat, telepon, atau email. Kepuasan Anda adalah prioritas kami.</p>
+            </div>
+            <div class="bg-white p-8 rounded-3xl shadow-hijau border border-krem card-hover" data-aos="fade-up" data-aos-delay="300">
+                <div class="icon-box mb-5">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3 class="text-xl font-bold text-hijau-tua">Ramah Lingkungan</h3>
+                <p class="text-gray-600 text-sm mt-2 leading-relaxed">Mendukung pertanian berkelanjutan dengan mengurangi rantai distribusi dan meminimalkan limbah makanan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRODUK UNGGULAN ===== -->
+    <section id="produk" class="max-w-7xl mx-auto px-4 sm:px-6 pb-20">
+        <div class="text-center mb-12" data-aos="fade-up" data-aos-duration="600">
+            <span class="text-hijau-tani font-semibold text-sm tracking-widest uppercase">Katalog</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-hijau-tua mt-2">Produk Unggulan</h2>
+            <p class="text-gray-600 max-w-xl mx-auto mt-3">Hasil panen terbaik dari petani pilihan di seluruh Indonesia.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Produk 1 -->
+            <div class="produk-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="relative">
+                    <div class="bg-hijau-muda rounded-2xl h-40 flex items-center justify-center text-6xl">
+                        🌾
+                    </div>
+                    <span class="discount-badge absolute top-2 left-2">-15%</span>
+                    <span class="today-badge absolute top-2 right-2">Hari Ini</span>
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between items-start">
+                        <h4 class="font-bold text-hijau-tua">Beras Organik</h4>
+                        <span class="badge-hijau">Premium</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-1">Cianjur, Jawa Barat</p>
+                    <div class="flex justify-between items-center mt-3">
+                        <div>
+                            <span class="text-lg font-bold text-hijau-tani">Rp 72.000</span>
+                            <span class="text-xs text-gray-400 line-through ml-2">Rp 85.000</span>
+                        </div>
+                        <span class="text-xs text-gray-400"><i class="fas fa-star text-yellow-400 mr-1"></i>4.9</span>
+                    </div>
+                    <a href="https://tani-hub-5otv.vercel.app/login" target="_blank" class="mt-3 block btn-hijau text-center py-2 rounded-full text-sm font-semibold transition">
+                        Pesan Sekarang
+                    </a>
+                </div>
+            </div>
+            <!-- Produk 2 -->
+            <div class="produk-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="relative">
+                    <div class="bg-hijau-muda rounded-2xl h-40 flex items-center justify-center text-6xl">
+                        🌶️
+                    </div>
+                    <span class="today-badge absolute top-2 right-2">Segar</span>
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between items-start">
+                        <h4 class="font-bold text-hijau-tua">Cabai Merah</h4>
+                        <span class="badge-hijau">Segar</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-1">Bekasi, Jawa Barat</p>
+                    <div class="flex justify-between items-center mt-3">
+                        <span class="text-lg font-bold text-hijau-tani">Rp 28.000</span>
+                        <span class="text-xs text-gray-400"><i class="fas fa-star text-yellow-400 mr-1"></i>4.8</span>
+                    </div>
+                    <a href="https://tani-hub-5otv.vercel.app/login" target="_blank" class="mt-3 block btn-hijau text-center py-2 rounded-full text-sm font-semibold transition">
+                        Pesan Sekarang
+                    </a>
+                </div>
+            </div>
+            <!-- Produk 3 -->
+            <div class="produk-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="relative">
+                    <div class="bg-hijau-muda rounded-2xl h-40 flex items-center justify-center text-6xl">
+                        🥬
+                    </div>
+                    <span class="discount-badge absolute top-2 left-2">-10%</span>
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between items-start">
+                        <h4 class="font-bold text-hijau-tua">Sawi Hijau</h4>
+                        <span class="badge-hijau">Organik</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-1">Lembang, Jawa Barat</p>
+                    <div class="flex justify-between items-center mt-3">
+                        <div>
+                            <span class="text-lg font-bold text-hijau-tani">Rp 10.800</span>
+                            <span class="text-xs text-gray-400 line-through ml-2">Rp 12.000</span>
+                        </div>
+                        <span class="text-xs text-gray-400"><i class="fas fa-star text-yellow-400 mr-1"></i>4.7</span>
+                    </div>
+                    <a href="https://tani-hub-5otv.vercel.app/login" target="_blank" class="mt-3 block btn-hijau text-center py-2 rounded-full text-sm font-semibold transition">
+                        Pesan Sekarang
+                    </a>
+                </div>
+            </div>
+            <!-- Produk 4 -->
+            <div class="produk-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="relative">
+                    <div class="bg-hijau-muda rounded-2xl h-40 flex items-center justify-center text-6xl">
+                        🍊
+                    </div>
+                    <span class="today-badge absolute top-2 right-2">Premium</span>
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between items-start">
+                        <h4 class="font-bold text-hijau-tua">Jeruk Manis</h4>
+                        <span class="badge-hijau">Premium</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-1">Batu, Jawa Timur</p>
+                    <div class="flex justify-between items-center mt-3">
+                        <span class="text-lg font-bold text-hijau-tani">Rp 35.000</span>
+                        <span class="text-xs text-gray-400"><i class="fas fa-star text-yellow-400 mr-1"></i>4.9</span>
+                    </div>
+                    <a href="https://tani-hub-5otv.vercel.app/login" target="_blank" class="mt-3 block btn-hijau text-center py-2 rounded-full text-sm font-semibold transition">
+                        Pesan Sekarang
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-10" data-aos="fade-up">
+            <a href="https://tani-hub-5otv.vercel.app/login" target="_blank" class="btn-outline-hijau px-8 py-3 rounded-full font-semibold transition inline-flex items-center gap-2">
+                Lihat Semua Produk <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== CARA KERJA ===== -->
+    <section id="cara-kerja" class="max-w-7xl mx-auto px-4 sm:px-6 pb-20">
+        <div class="text-center mb-12" data-aos="fade-up" data-aos-duration="600">
+            <span class="text-hijau-tani font-semibold text-sm tracking-widest uppercase">Panduan</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-hijau-tua mt-2">Cara Kerja Tani Hub</h2>
+            <p class="text-gray-600 max-w-xl mx-auto mt-3">Mulai bertransaksi dengan mudah hanya dalam 4 langkah.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="step-number mx-auto mb-4">1</div>
+                <h4 class="font-bold text-hijau-tua">Daftar Akun</h4>
+                <p class="text-sm text-gray-600 mt-2">Daftar gratis sebagai petani atau pembeli dengan email dan nomor HP.</p>
+            </div>
+            <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="step-number mx-auto mb-4">2</div>
+                <h4 class="font-bold text-hijau-tua">Verifikasi</h4>
+                <p class="text-sm text-gray-600 mt-2">Petani verifikasi lahan & produk. Pembeli verifikasi identitas untuk keamanan.</p>
+            </div>
+            <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                <div class="step-number mx-auto mb-4">3</div>
+                <h4 class="font-bold text-hijau-tua">Bertransaksi</h4>
+                <p class="text-sm text-gray-600 mt-2">Pilih produk, pesan, dan lakukan pembayaran melalui sistem yang aman.</p>
+            </div>
+            <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                <div class="step-number mx-auto mb-4">4</div>
+                <h4 class="font-bold text-hijau-tua">Kirim & Terima</h4>
+                <p class="text-sm text-gray-600 mt-2">Produk dikirim langsung dari petani ke pembeli dengan logistik terintegrasi.</p>
+            </div>
+        </div>
+
+        <div class="text-center mt-10" data-aos="fade-up">
+            <a href="https://tani-hub-5otv.vercel.app/login" target="_blank" class="btn-hijau px-8 py-3.5 rounded-full font-semibold shadow-md transition inline-flex items-center gap-2">
+                <i class="fas fa-user-plus"></i> Mulai Sekarang
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONI ===== -->
+    <section id="testimoni" class="max-w-7xl mx-auto px-4 sm:px-6 pb-20">
+        <div class="text-center mb-12" data-aos="fade-up" data-aos-duration="600">
+            <span class="text-hijau-tani font-semibold text-sm tracking-widest uppercase">Testimoni</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-hijau-tua mt-2">Apa Kata Mereka</h2>
+            <p class="text-gray-600 max-w-xl mx-auto mt-3">Pengalaman nyata dari petani dan pembeli yang sudah bergabung dengan Tani Hub.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Testimoni 1 -->
+            <div class="testimoni-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex items-center gap-3 mb-4">
+                    <img src="https://i.pravatar.cc/80?img=11" alt="Pak Slamet" class="w-12 h-12 rounded-full object-cover border-2 border-hijau-muda" loading="lazy" />
+                    <div>
+                        <p class="font-bold text-hijau-tua">Pak Slamet</p>
+                        <p class="text-xs text-gray-400">Petani Cabai, Bekasi</p>
+                    </div>
+                </div>
+                <div class="flex text-yellow-400 text-sm mb-2">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed">"Sejak pakai Tani Hub, hasil panen saya langsung laku tanpa perantara. Harga lebih baik dan pembayaran cepat!"</p>
+            </div>
+            <!-- Testimoni 2 -->
+            <div class="testimoni-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex items-center gap-3 mb-4">
+                    <img src="https://i.pravatar.cc/80?img=25" alt="Ibu Rina" class="w-12 h-12 rounded-full object-cover border-2 border-hijau-muda" loading="lazy" />
+                    <div>
+                        <p class="font-bold text-hijau-tua">Ibu Rina</p>
+                        <p class="text-xs text-gray-400">Pemilik Restoran, Jakarta</p>
+                    </div>
+                </div>
+                <div class="flex text-yellow-400 text-sm mb-2">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed">"Bahan baku selalu segar dan berkualitas. Saya bisa memesan langsung dari petani dengan harga yang bersaing."</p>
+            </div>
+            <!-- Testimoni 3 -->
+            <div class="testimoni-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="flex items-center gap-3 mb-4">
+                    <img src="https://i.pravatar.cc/80?img=33" alt="Pak Budi" class="w-12 h-12 rounded-full object-cover border-2 border-hijau-muda" loading="lazy" />
+                    <div>
+                        <p class="font-bold text-hijau-tua">Pak Budi</p>
+                        <p class="text-xs text-gray-400">Petani Beras, Cianjur</p>
+                    </div>
+                </div>
+                <div class="flex text-yellow-400 text-sm mb-2">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed">"Aplikasi mudah digunakan, transparansi harga sangat membantu. Pendapatan saya meningkat 40% dalam 3 bulan."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TENTANG / STATISTIK ===== -->
+    <section id="tentang" class="max-w-7xl mx-auto px-4 sm:px-6 pb-20" data-aos="fade-up" data-aos-duration="800">
+        <div class="bg-hijau-tani rounded-3xl p-10 md:p-14 text-white shadow-2xl shadow-green-900/20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <div>
+                    <span class="bg-white/20 px-4 py-1.5 rounded-full text-sm font-medium inline-block mb-4">
+                        <i class="fas fa-leaf mr-2"></i> Tentang Kami
+                    </span>
+                    <h2 class="text-3xl md:text-4xl font-bold">Tani Hub</h2>
+                    <p class="text-green-100/80 mt-3 leading-relaxed">
+                        Didirikan pada tahun 2023 dengan misi untuk merevolusi rantai pasok pertanian di Indonesia. Kami percaya bahwa petani berhak mendapatkan harga yang adil dan pembeli berhak mendapatkan produk segar dengan harga terbaik.
+                    </p>
+                    <div class="flex flex-wrap gap-6 mt-6">
+                        <div>
+                            <span class="block text-2xl font-bold counter-number text-white" data-count="50">0</span>
+                            <span class="text-sm text-green-200/70">Kota terlayani</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-bold counter-number text-white" data-count="200">0</span>
+                            <span class="text-sm text-green-200/70">Komoditas</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-bold counter-number text-white" data-count="100">0</span>
+                            <span class="text-sm text-green-200/70">% Transparansi</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white/10 rounded-2xl p-6 text-center backdrop-blur-sm" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-4xl mb-2">🌱</div>
+                        <p class="font-semibold">Petani Terverifikasi</p>
+                        <p class="text-sm text-green-200/70 counter-number text-white" data-count="12000">0</p>
+                    </div>
+                    <div class="bg-white/10 rounded-2xl p-6 text-center backdrop-blur-sm" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-4xl mb-2">🛒</div>
+                        <p class="font-semibold">Pembeli Aktif</p>
+                        <p class="text-sm text-green-200/70 counter-number text-white" data-count="8400">0</p>
+                    </div>
+                    <div class="bg-white/10 rounded-2xl p-6 text-center backdrop-blur-sm" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-4xl mb-2">📦</div>
+                        <p class="font-semibold">Transaksi</p>
+                        <p class="text-sm text-green-200/70 counter-number text-white" data-count="25000">0</p>
+                    </div>
+                    <div class="bg-white/10 rounded-2xl p-6 text-center backdrop-blur-sm" data-aos="fade-up" data-aos-delay="400">
+                        <div class="text-4xl mb-2">⭐</div>
+                        <p class="font-semibold">Rating</p>
+                        <p class="text-sm text-green-200/70">4.9/5.0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA BANNER ===== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 pb-20" data-aos="fade-up" data-aos-duration="600">
+        <div class="bg-hijau-muda rounded-3xl p-10 md:p-14 text-center border border-[#c5d9b5]">
+            <h2 class="text-3xl md:text-4xl font-bold text-hijau-tua">Siap Bergabung dengan Tani Hub?</h2>
+            <p class="text-gray-600 max-w-lg mx-auto mt-3">Ribuan petani dan pembeli sudah menikmati kemudahan bertransaksi langsung. Bergabunglah sekarang, gratis!</p>
+            <div class="mt-8 flex flex-wrap justify-center gap-4">
+                <a href="https://tani-hub-5otv.vercel.app/login" target="_blank" class="btn-hijau px-8 py-3.5 rounded-full font-semibold shadow-lg hover:shadow-xl transition inline-flex items-center gap-2">
+                    <i class="fas fa-user-plus"></i> Daftar Gratis
+                </a>
+                <a href="#fitur" class="btn-outline-hijau px-8 py-3.5 rounded-full font-semibold transition inline-flex items-center gap-2">
+                    <i class="fas fa-info-circle"></i> Pelajari Fitur
+                </a>
+            </div>
+            <p class="text-xs text-gray-400 mt-4">
+                <i class="fas fa-check-circle text-hijau-tani mr-1"></i> Gratis selamanya untuk petani
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== FORM KONTAK DI FOOTER ===== -->
+    <footer id="kontak" class="max-w-7xl mx-auto px-4 sm:px-6 pb-8">
+        <div class="border-t border-[#e8dfd2] pt-10">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="bg-hijau-tani w-9 h-9 rounded-xl flex items-center justify-center text-white text-sm">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <span class="text-xl font-bold text-hijau-tua">Tani<span class="text-hijau-tani">Hub</span></span>
+                    </div>
+                    <p class="text-sm text-gray-500 leading-relaxed">Platform agritech yang menghubungkan petani ke pembeli tanpa perantara.</p>
+                    <div class="flex gap-4 mt-4 text-gray-500">
+                        <a href="#" class="hover:text-hijau-tani transition"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="hover:text-hijau-tani transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-hijau-tani transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-hijau-tani transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h5 class="font-bold text-hijau-tua mb-3">Perusahaan</h5>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li><a href="#" class="footer-link transition">Tentang Kami</a></li>
+                        <li><a href="#" class="footer-link transition">Karir</a></li>
+                        <li><a href="#" class="footer-link transition">Blog</a></li>
+                        <li><a href="#" class="footer-link transition">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-hijau-tua mb-3">Layanan</h5>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li><a href="#" class="footer-link transition">Untuk Petani</a></li>
+                        <li><a href="#" class="footer-link transition">Untuk Pembeli</a></li>
+                        <li><a href="#" class="footer-link transition">Logistik</a></li>
+                        <li><a href="#" class="footer-link transition">Pusat Bantuan</a></li>
+                    </ul>
+                </div>
+
+                <!-- Form Kontak -->
+                <div>
+                    <h5 class="font-bold text-hijau-tua mb-3">Hubungi Kami</h5>
+                    <form id="contactForm" class="space-y-3" onsubmit="return handleContact(event)">
+                        <input type="text" placeholder="Nama Anda" required class="w-full px-4 py-2.5 rounded-full border border-krem bg-white text-sm focus:outline-none focus:border-hijau-tani transition" />
+                        <input type="email" placeholder="Email" required class="w-full px-4 py-2.5 rounded-full border border-krem bg-white text-sm focus:outline-none focus:border-hijau-tani transition" />
+                        <textarea placeholder="Pesan..." rows="2" required class="w-full px-4 py-2.5 rounded-2xl border border-krem bg-white text-sm focus:outline-none focus:border-hijau-tani transition resize-none"></textarea>
+                        <button type="submit" class="btn-hijau w-full py-2.5 rounded-full text-sm font-semibold transition">
+                            Kirim Pesan <i class="fas fa-paper-plane ml-1.5"></i>
+                        </button>
+                    </form>
+                    <p id="formStatus" class="text-xs text-hijau-tani mt-2 hidden">✅ Pesan terkirim! Kami akan segera merespon.</p>
+                </div>
+            </div>
+
+            <div class="border-t border-[#e8dfd2] mt-8 pt-6 text-center text-sm text-gray-400">
+                <p>© 2026 Tani Hub. Platform Agritech — Petani ke Pembeli. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js">
+    </script>
+    <script>
+        // ===== PRELOADER =====
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('preloader').classList.add('hide');
+            }, 600);
+        });
+
+        // ===== AOS INIT =====
+        AOS.init({
+            once: true,
+            duration: 800,
+            easing: 'ease-out-cubic'
+        });
+
+        // ===== COUNTER ANIMATION =====
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                const suffix = counter.closest('.text-white') ? '' : '';
+                let current = 0;
+                const increment = Math.ceil(target / 60);
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    // Jika persentase
+                    if (target === 98 || target === 100) {
+                        counter.textContent = current + '%';
+                    } else {
+                        counter.textContent = current.toLocaleString('id-ID');
+                    }
+                }, 20);
+            });
+        }
+
+        // Trigger counter saat elemen terlihat (pakai Intersection Observer)
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.counter-number');
+                    counters.forEach(c => {
+                        const target = parseInt(c.getAttribute('data-count'));
+                        let current = 0;
+                        const increment = Math.ceil(target / 60);
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                current = target;
+                                clearInterval(timer);
+                            }
+                            if (target === 98 || target === 100) {
+                                c.textContent = current + '%';
+                            } else {
+                                c.textContent = current.toLocaleString('id-ID');
+                            }
+                        }, 20);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe section dengan counter
+        document.querySelectorAll('.counter-number').forEach(el => {
+            const parent = el.closest('section') || el.closest('.bg-hijau-tani') || el.closest(
+            '.flex.flex-wrap');
+            if (parent) {
+                observer.observe(parent);
+            }
+        });
+
+        // Juga jalankan untuk hero counter
+        const heroCounters = document.querySelector('.flex.flex-wrap.gap-8.pt-4');
+        if (heroCounters) observer.observe(heroCounters);
+
+        // ===== DARK MODE =====
+        const darkToggle = document.getElementById('darkToggle');
+        const body = document.body;
+
+        // Cek local storage
+        if (localStorage.getItem('darkMode') === 'true') {
+            body.classList.add('dark-mode');
+            darkToggle.classList.add('active');
+        }
+
+        darkToggle.addEventListener('click', function() {
+            body.classList.toggle('dark-mode');
+            this.classList.toggle('active');
+            localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+        });
+
+        // ===== FORM KONTAK =====
+        function handleContact(e) {
+            e.preventDefault();
+            const status = document.getElementById('formStatus');
+            status.classList.remove('hidden');
+            status.textContent = '✅ Pesan terkirim! Kami akan segera merespon.';
+            setTimeout(() => {
+                status.classList.add('hidden');
+            }, 4000);
+            e.target.reset();
+            return false;
+        }
+
+        // ===== FLOATING CTA: hide on scroll down =====
+        let lastScroll = 0;
+        const floatingCta = document.getElementById('floatingCta');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > lastScroll && currentScroll > 200) {
+                floatingCta.style.transform = 'translateY(100px)';
+                floatingCta.style.opacity = '0';
+            } else {
+                floatingCta.style.transform = 'translateY(0)';
+                floatingCta.style.opacity = '1';
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+
+</body>
+</html>
