@@ -402,6 +402,14 @@
             color: #8bc9a0;
         }
 
+        /* Product image */
+        .product-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 1rem;
+        }
+
         /* responsive */
         @media (max-width: 640px) {
             .hero-text {
@@ -418,6 +426,9 @@
             }
             .counter-number {
                 font-size: 1.8rem;
+            }
+            .product-img {
+                height: 120px;
             }
         }
         @media (min-width: 641px) {
@@ -532,7 +543,7 @@
                 </div>
             </div>
 
-            <!-- Kanan: Animasi / Ilustrasi -->
+            <!-- Kanan: Animasi / Ilustrasi dengan gambar dari seed -->
             <div class="order-1 lg:order-2 flex justify-center hero-illustration" data-aos="fade-left" data-aos-duration="800">
                 <div class="relative w-full max-w-md">
                     <div class="bg-white rounded-3xl p-8 shadow-hijau border border-krem relative">
@@ -546,40 +557,46 @@
                         </div>
 
                         <div class="flex items-center gap-4 bg-hijau-muda rounded-2xl p-4 mb-5 border border-[#d4e8cf]">
-                            <div class="bg-hijau-tani w-14 h-14 rounded-xl flex items-center justify-center text-white text-2xl">
-                                <i class="fas fa-tractor"></i>
-                            </div>
+                            <img src="https://images.unsplash.com/photo-1597362925123-77861d3fbac7?w=200&h=200&fit=crop" 
+                                 alt="Sayuran Segar" 
+                                 class="w-14 h-14 rounded-xl object-cover" />
                             <div>
-                                <p class="font-semibold text-hijau-tua">Panen Segar</p>
-                                <p class="text-xs text-gray-600">Langganan dari 20+ petani</p>
+                                <p class="font-semibold text-hijau-tua">Sayuran Segar</p>
+                                <p class="text-xs text-gray-600">Boyolali · 1 jam lalu</p>
                             </div>
-                            <span class="ml-auto text-hijau-tani font-bold text-sm">Rp 45K</span>
+                            <span class="ml-auto text-hijau-tani font-bold text-sm">Rp 25K</span>
                         </div>
 
                         <div class="space-y-3">
                             <div class="flex items-center gap-3 border-b border-[#f0ebe2] pb-2">
-                                <span class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-700">🌶️</span>
+                                <img src="https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=100&h=100&fit=crop" 
+                                     alt="Bayam" 
+                                     class="w-8 h-8 rounded-full object-cover" />
                                 <div class="flex-1">
-                                    <p class="text-sm font-medium text-hijau-tua">Cabai Merah</p>
-                                    <p class="text-xs text-gray-400">Bekasi · 2 jam lalu</p>
+                                    <p class="text-sm font-medium text-hijau-tua">Bayam Organik</p>
+                                    <p class="text-xs text-gray-400">Boyolali · 1 jam lalu</p>
                                 </div>
-                                <span class="text-sm font-semibold text-hijau-tani">Rp 28K</span>
+                                <span class="text-sm font-semibold text-hijau-tani">Rp 8.5K</span>
                             </div>
                             <div class="flex items-center gap-3 border-b border-[#f0ebe2] pb-2">
-                                <span class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-700">🍚</span>
+                                <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=100&h=100&fit=crop" 
+                                     alt="Beras" 
+                                     class="w-8 h-8 rounded-full object-cover" />
                                 <div class="flex-1">
-                                    <p class="text-sm font-medium text-hijau-tua">Beras Organik</p>
-                                    <p class="text-xs text-gray-400">Cianjur · 4 jam lalu</p>
+                                    <p class="text-sm font-medium text-hijau-tua">Beras Pandan Wangi</p>
+                                    <p class="text-xs text-gray-400">Magelang · 3 jam lalu</p>
                                 </div>
-                                <span class="text-sm font-semibold text-hijau-tani">Rp 85K</span>
+                                <span class="text-sm font-semibold text-hijau-tani">Rp 14K</span>
                             </div>
                             <div class="flex items-center gap-3">
-                                <span class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-700">🥬</span>
+                                <img src="https://images.unsplash.com/photo-1570913149827-d2ac84ab3f9a?w=100&h=100&fit=crop" 
+                                     alt="Apel" 
+                                     class="w-8 h-8 rounded-full object-cover" />
                                 <div class="flex-1">
-                                    <p class="text-sm font-medium text-hijau-tua">Sawi Hijau</p>
-                                    <p class="text-xs text-gray-400">Lembang · 6 jam lalu</p>
+                                    <p class="text-sm font-medium text-hijau-tua">Apel Manalagi</p>
+                                    <p class="text-xs text-gray-400">Malang · 5 jam lalu</p>
                                 </div>
-                                <span class="text-sm font-semibold text-hijau-tani">Rp 12K</span>
+                                <span class="text-sm font-semibold text-hijau-tani">Rp 25K</span>
                             </div>
                         </div>
 
@@ -649,7 +666,7 @@
         </div>
     </section>
 
-    <!-- ===== PRODUK UNGGULAN ===== -->
+    <!-- ===== PRODUK UNGGULAN - Dengan gambar dari seed database ===== -->
     <section id="produk" class="max-w-7xl mx-auto px-4 sm:px-6 pb-20">
         <div class="text-center mb-12" data-aos="fade-up" data-aos-duration="600">
             <span class="text-hijau-tani font-semibold text-sm tracking-widest uppercase">Katalog</span>
@@ -658,25 +675,25 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Produk 1 -->
+            <!-- Produk 1: Bayam Organik -->
             <div class="produk-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="relative">
-                    <div class="bg-hijau-muda rounded-2xl h-40 flex items-center justify-center text-6xl">
-                        🌾
-                    </div>
-                    <span class="discount-badge absolute top-2 left-2">-15%</span>
+                    <img src="https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400&h=300&fit=crop" 
+                         alt="Bayam Organik Segar" 
+                         class="product-img" />
+                    <span class="discount-badge absolute top-2 left-2">-10%</span>
                     <span class="today-badge absolute top-2 right-2">Hari Ini</span>
                 </div>
                 <div class="mt-4">
                     <div class="flex justify-between items-start">
-                        <h4 class="font-bold text-hijau-tua">Beras Organik</h4>
-                        <span class="badge-hijau">Premium</span>
+                        <h4 class="font-bold text-hijau-tua">Bayam Organik</h4>
+                        <span class="badge-hijau">Organik</span>
                     </div>
-                    <p class="text-sm text-gray-500 mt-1">Cianjur, Jawa Barat</p>
+                    <p class="text-sm text-gray-500 mt-1">Boyolali, Jawa Tengah</p>
                     <div class="flex justify-between items-center mt-3">
                         <div>
-                            <span class="text-lg font-bold text-hijau-tani">Rp 72.000</span>
-                            <span class="text-xs text-gray-400 line-through ml-2">Rp 85.000</span>
+                            <span class="text-lg font-bold text-hijau-tani">Rp 7.650</span>
+                            <span class="text-xs text-gray-400 line-through ml-2">Rp 8.500</span>
                         </div>
                         <span class="text-xs text-gray-400"><i class="fas fa-star text-yellow-400 mr-1"></i>4.9</span>
                     </div>
@@ -685,22 +702,75 @@
                     </a>
                 </div>
             </div>
-            <!-- Produk 2 -->
+
+            <!-- Produk 2: Kangkung Hidroponik (GANTI CABAI) -->
             <div class="produk-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="relative">
-                    <div class="bg-hijau-muda rounded-2xl h-40 flex items-center justify-center text-6xl">
-                        🌶️
-                    </div>
-                    <span class="today-badge absolute top-2 right-2">Segar</span>
+                    <img src="https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?w=400&h=300&fit=crop" 
+                         alt="Kangkung Hidroponik" 
+                         class="product-img" />
+                    <span class="today-badge absolute top-2 right-2">Hidroponik</span>
                 </div>
                 <div class="mt-4">
                     <div class="flex justify-between items-start">
-                        <h4 class="font-bold text-hijau-tua">Cabai Merah</h4>
-                        <span class="badge-hijau">Segar</span>
+                        <h4 class="font-bold text-hijau-tua">Kangkung Hidroponik</h4>
+                        <span class="badge-hijau">Premium</span>
                     </div>
-                    <p class="text-sm text-gray-500 mt-1">Bekasi, Jawa Barat</p>
+                    <p class="text-sm text-gray-500 mt-1">Boyolali, Jawa Tengah</p>
                     <div class="flex justify-between items-center mt-3">
-                        <span class="text-lg font-bold text-hijau-tani">Rp 28.000</span>
+                        <span class="text-lg font-bold text-hijau-tani">Rp 7.000</span>
+                        <span class="text-xs text-gray-400"><i class="fas fa-star text-yellow-400 mr-1"></i>4.7</span>
+                    </div>
+                    <a href="https://tani-hub-5otv.vercel.app/login" target="_blank" class="mt-3 block btn-hijau text-center py-2 rounded-full text-sm font-semibold transition">
+                        Pesan Sekarang
+                    </a>
+                </div>
+            </div>
+
+            <!-- Produk 3: Beras Pandan Wangi -->
+            <div class="produk-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=300&fit=crop" 
+                         alt="Beras Pandan Wangi" 
+                         class="product-img" />
+                    <span class="discount-badge absolute top-2 left-2">-5%</span>
+                    <span class="today-badge absolute top-2 right-2">Premium</span>
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between items-start">
+                        <h4 class="font-bold text-hijau-tua">Beras Pandan Wangi</h4>
+                        <span class="badge-hijau">Premium</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-1">Magelang, Jawa Tengah</p>
+                    <div class="flex justify-between items-center mt-3">
+                        <div>
+                            <span class="text-lg font-bold text-hijau-tani">Rp 13.300</span>
+                            <span class="text-xs text-gray-400 line-through ml-2">Rp 14.000</span>
+                        </div>
+                        <span class="text-xs text-gray-400"><i class="fas fa-star text-yellow-400 mr-1"></i>4.9</span>
+                    </div>
+                    <a href="https://tani-hub-5otv.vercel.app/login" target="_blank" class="mt-3 block btn-hijau text-center py-2 rounded-full text-sm font-semibold transition">
+                        Pesan Sekarang
+                    </a>
+                </div>
+            </div>
+
+            <!-- Produk 4: Jeruk Siam Manis (GANTI APEL) -->
+            <div class="produk-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1547514701-42782101795e?w=400&h=300&fit=crop" 
+                         alt="Jeruk Siam Manis" 
+                         class="product-img" />
+                    <span class="today-badge absolute top-2 right-2">Manis</span>
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between items-start">
+                        <h4 class="font-bold text-hijau-tua">Jeruk Siam Manis</h4>
+                        <span class="badge-hijau">Premium</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-1">Malang, Jawa Timur</p>
+                    <div class="flex justify-between items-center mt-3">
+                        <span class="text-lg font-bold text-hijau-tani">Rp 18.000</span>
                         <span class="text-xs text-gray-400"><i class="fas fa-star text-yellow-400 mr-1"></i>4.8</span>
                     </div>
                     <a href="https://tani-hub-5otv.vercel.app/login" target="_blank" class="mt-3 block btn-hijau text-center py-2 rounded-full text-sm font-semibold transition">
@@ -708,23 +778,52 @@
                     </a>
                 </div>
             </div>
-            <!-- Produk 3 -->
-            <div class="produk-card" data-aos="fade-up" data-aos-delay="300">
+        </div>
+
+        <!-- Baris kedua produk tambahan -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+            <!-- Produk 5: Selada Keriting -->
+            <div class="produk-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="relative">
-                    <div class="bg-hijau-muda rounded-2xl h-40 flex items-center justify-center text-6xl">
-                        🥬
-                    </div>
-                    <span class="discount-badge absolute top-2 left-2">-10%</span>
+                    <img src="https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?w=400&h=300&fit=crop" 
+                         alt="Selada Keriting" 
+                         class="product-img" />
+                    <span class="today-badge absolute top-2 right-2">Grade A</span>
                 </div>
                 <div class="mt-4">
                     <div class="flex justify-between items-start">
-                        <h4 class="font-bold text-hijau-tua">Sawi Hijau</h4>
-                        <span class="badge-hijau">Organik</span>
+                        <h4 class="font-bold text-hijau-tua">Selada Keriting</h4>
+                        <span class="badge-hijau">Grade A</span>
                     </div>
-                    <p class="text-sm text-gray-500 mt-1">Lembang, Jawa Barat</p>
+                    <p class="text-sm text-gray-500 mt-1">Boyolali, Jawa Tengah</p>
+                    <div class="flex justify-between items-center mt-3">
+                        <span class="text-lg font-bold text-hijau-tani">Rp 15.000</span>
+                        <span class="text-xs text-gray-400"><i class="fas fa-star text-yellow-400 mr-1"></i>4.9</span>
+                    </div>
+                    <a href="https://tani-hub-5otv.vercel.app/login" target="_blank" class="mt-3 block btn-hijau text-center py-2 rounded-full text-sm font-semibold transition">
+                        Pesan Sekarang
+                    </a>
+                </div>
+            </div>
+
+            <!-- Produk 6: Pisang Cavendish -->
+            <div class="produk-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&h=300&fit=crop" 
+                         alt="Pisang Cavendish" 
+                         class="product-img" />
+                    <span class="discount-badge absolute top-2 left-2">-8%</span>
+                    <span class="today-badge absolute top-2 right-2">Export Quality</span>
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between items-start">
+                        <h4 class="font-bold text-hijau-tua">Pisang Cavendish</h4>
+                        <span class="badge-hijau">Grade A</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-1">Malang, Jawa Timur</p>
                     <div class="flex justify-between items-center mt-3">
                         <div>
-                            <span class="text-lg font-bold text-hijau-tani">Rp 10.800</span>
+                            <span class="text-lg font-bold text-hijau-tani">Rp 11.000</span>
                             <span class="text-xs text-gray-400 line-through ml-2">Rp 12.000</span>
                         </div>
                         <span class="text-xs text-gray-400"><i class="fas fa-star text-yellow-400 mr-1"></i>4.7</span>
@@ -734,23 +833,48 @@
                     </a>
                 </div>
             </div>
-            <!-- Produk 4 -->
-            <div class="produk-card" data-aos="fade-up" data-aos-delay="400">
+
+            <!-- Produk 7: Jagung Manis -->
+            <div class="produk-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="relative">
-                    <div class="bg-hijau-muda rounded-2xl h-40 flex items-center justify-center text-6xl">
-                        🍊
-                    </div>
-                    <span class="today-badge absolute top-2 right-2">Premium</span>
+                    <img src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=400&h=300&fit=crop" 
+                         alt="Jagung Manis" 
+                         class="product-img" />
+                    <span class="today-badge absolute top-2 right-2">Hibrida</span>
                 </div>
                 <div class="mt-4">
                     <div class="flex justify-between items-start">
-                        <h4 class="font-bold text-hijau-tua">Jeruk Manis</h4>
-                        <span class="badge-hijau">Premium</span>
+                        <h4 class="font-bold text-hijau-tua">Jagung Manis</h4>
+                        <span class="badge-hijau">Grade A</span>
                     </div>
-                    <p class="text-sm text-gray-500 mt-1">Batu, Jawa Timur</p>
+                    <p class="text-sm text-gray-500 mt-1">Magelang, Jawa Tengah</p>
                     <div class="flex justify-between items-center mt-3">
-                        <span class="text-lg font-bold text-hijau-tani">Rp 35.000</span>
-                        <span class="text-xs text-gray-400"><i class="fas fa-star text-yellow-400 mr-1"></i>4.9</span>
+                        <span class="text-lg font-bold text-hijau-tani">Rp 6.000</span>
+                        <span class="text-xs text-gray-400"><i class="fas fa-star text-yellow-400 mr-1"></i>4.8</span>
+                    </div>
+                    <a href="https://tani-hub-5otv.vercel.app/login" target="_blank" class="mt-3 block btn-hijau text-center py-2 rounded-full text-sm font-semibold transition">
+                        Pesan Sekarang
+                    </a>
+                </div>
+            </div>
+
+            <!-- Produk 8: Kentang Granola -->
+            <div class="produk-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=400&h=300&fit=crop" 
+                         alt="Kentang Granola" 
+                         class="product-img" />
+                    <span class="today-badge absolute top-2 right-2">Segar</span>
+                </div>
+                <div class="mt-4">
+                    <div class="flex justify-between items-start">
+                        <h4 class="font-bold text-hijau-tua">Kentang Granola</h4>
+                        <span class="badge-hijau">Grade A</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-1">Boyolali, Jawa Tengah</p>
+                    <div class="flex justify-between items-center mt-3">
+                        <span class="text-lg font-bold text-hijau-tani">Rp 9.000</span>
+                        <span class="text-xs text-gray-400"><i class="fas fa-star text-yellow-400 mr-1"></i>4.8</span>
                     </div>
                     <a href="https://tani-hub-5otv.vercel.app/login" target="_blank" class="mt-3 block btn-hijau text-center py-2 rounded-full text-sm font-semibold transition">
                         Pesan Sekarang
